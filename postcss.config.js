@@ -1,11 +1,11 @@
 const purgeCss =
   process.env.NODE_ENV === 'production'
     ? [
-        '@fullhuman/postcss-purgecss',
+        require('@fullhuman/postcss-purgecss'),
         {
           content: [
-            './pages/**/*.{js,jsx,ts,tsx}',
-            './components/**/*.{js,jsx,ts,tsx}',
+            './components/**/*.vue',
+            './App.vue'
           ],
           defaultExtractor: (content) =>
             content.match(/[A-Za-z0-9-_:/]+/g) || [],
@@ -15,10 +15,11 @@ const purgeCss =
 
 module.exports = {
   plugins: [
-    'tailwindcss',
-    'postcss-preset-env',
-    purgeCss,
-    ['autoprefixer', { grid: true }],
-    'cssnano',
-  ],
+    require('postcss-nesting'),
+    require('tailwindcss'),
+    require('postcss-preset-env'),
+    // purgeCss,
+    require('autoprefixer'),
+    require('cssnano'),
+  ]
 }
