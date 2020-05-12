@@ -1,7 +1,7 @@
 <template>
-  <div class="w-full flex flex-col">
-    <div class="text-center">
-      <img alt="Vue logo" src="./logo.png" />
+  <div class="w-full text-center">
+    <div>
+      <img alt="Vue logo" class="inline" width="200" src="./logo.png" />
     </div>
     <HelloWorld msg="Hello Vue 3.0 + Vite" />
   </div>
